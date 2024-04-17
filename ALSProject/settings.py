@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-xl6_#7@5%v8yq*4y$)i83pei#_zu(56!7i%v2w9%26snng$@ra
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['altonlineacademy.onrender.com', '127.0.0.1:8000']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
