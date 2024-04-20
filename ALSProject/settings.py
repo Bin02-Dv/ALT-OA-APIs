@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-xl6_#7@5%v8yq*4y$)i83pei#_zu(56!7i%v2w9%26snng$@ra
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['altonlineacademy.onrender.com', 'localhost:8000']
+ALLOWED_HOSTS = ['altonlineacademy.onrender.com', 'localhost', '127.0.0.1']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'https://alphatech-school.vercel.app'
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
