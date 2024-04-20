@@ -7,10 +7,7 @@ import jwt, datetime
 from django.shortcuts import render, redirect
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate
-from django.http import JsonResponse
-from .decorators import add_cors_headers
 
-# @add_cors_headers
 class SignUpView(APIView):
     def post(self, request):
         serializer = AuthApiModelSerializer(data=request.data)
@@ -18,7 +15,6 @@ class SignUpView(APIView):
         serializer.save()
         return Response(serializer.data)
 
-# @add_cors_headers
 class LoginView(APIView):
     def post(self, request):
         email = request.data['email']
@@ -52,7 +48,6 @@ class LoginView(APIView):
         
         return response
 
-# @add_cors_headers
 class UserView(APIView):
 
     def get(self, request):
@@ -72,7 +67,6 @@ class UserView(APIView):
 
         return Response(serializer.data)
 
-# @add_cors_headers
 class LogoutView(APIView):
 
     def post(self, request):
@@ -84,7 +78,6 @@ class LogoutView(APIView):
 
         return response
 
-# @add_cors_headers
 class AllUserView(APIView):
 
     def get(self, request):
