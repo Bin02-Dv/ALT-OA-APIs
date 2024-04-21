@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SignUpView, LoginView, UserView, LogoutView, AllUserView, CourseView
+from .views import SignUpView, LoginView, UserView, LogoutView, AllUserView, CourseView, AllCoursesView
 
 urlpatterns = [
     # Authentication
@@ -12,4 +12,5 @@ urlpatterns = [
     # Course Upload
 
     path('user/course/upload', CourseView.as_view()),
+    path('user/course', AllCoursesView.as_view()),
 ]
