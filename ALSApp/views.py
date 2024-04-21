@@ -1,12 +1,13 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
-from .serializers import AuthApiModelSerializer
-from .models import AuthApiModel
+from .serializers import AuthApiModelSerializer, CourseModelSerializer
+from .models import AuthApiModel, Course
 import jwt, datetime
 from django.shortcuts import render, redirect
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate
+from rest_framework import status
 
 class SignUpView(APIView):
     def post(self, request):
@@ -84,3 +85,12 @@ class AllUserView(APIView):
         users = AuthApiModel.objects.all()
         serializer = AuthApiModelSerializer(users, many=True)
         return Response(serializer.data)
+
+class CourseView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = CourseModelSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

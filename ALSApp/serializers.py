@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import AuthApiModel
+from .models import AuthApiModel, Course
 
 class AuthApiModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = AuthApiModel
-        fields = ['id', 'first_name', 'last_name', 'email', 'password', 'phone_number', 'invitation_code']
+        fields = ['id', 'first_name', 'last_name', 'email', 'password', 'state', 'phone_number', 'invitation_code']
         extra_kwargs = {
             'password': {'write_only': False}
         }
@@ -16,3 +16,9 @@ class AuthApiModelSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+class CourseModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = ['id', 'instructor', 'instructor_full_name', 'course_title', 'course_slide', 'course_video']
+        
