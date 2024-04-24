@@ -20,5 +20,5 @@ class AuthApiModelSerializer(serializers.ModelSerializer):
 class CourseModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ['id', 'instructor', 'instructor_full_name', 'course_title', 'course_slide', 'course_video']
+        fields = ['id', 'instructor', 'instructor_full_name', 'course_title', 'course_description', 'course_price', 'course_banner', 'course_slide', 'course_video']
         
